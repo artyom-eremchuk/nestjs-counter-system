@@ -1,0 +1,63 @@
+# ========================
+# Общие для всех сервисов
+# ========================
+
+# Зависимости
+**/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Сборка
+**/dist/
+**/build/
+
+# Окружение
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Логи
+logs
+*.log
+
+# Покрытие тестами
+coverage/
+.nyc_output/
+
+# Docker
+docker-compose.override.yml
+
+# ========================
+# NestJS специфичные
+# ========================
+**/.cache/
+
+# ========================
+# Пакеты/зависимости
+# ========================
+**/package-lock.json
+**/yarn.lock
+**/pnpm-lock.yaml
+
+# ========================
+# Runtime данные
+# ========================
+**/*.pid
+**/*.seed
+**/*.pid.lock
