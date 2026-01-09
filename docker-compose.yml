@@ -1,0 +1,32 @@
+services:
+  counter-service:
+    build:
+      context: ./counter-service
+      target: production
+    container_name: counter-service
+    ports:
+      - "3000:3000" # PORT из .env уже 3000
+    env_file:
+      - ./counter-service/.env # Здесь уже есть LOGGER_URL
+    depends_on:
+      - logger-service
+    networks:
+      - counter-logger-net
+    restart: unless-stopped
+
+  logger-service:
+    build:
+      context: ./logger-service
+      target: production
+    container_name: logger-service
+    ports:
+      - "3001:3001" # PORT из .env уже 3001
+    env_file:
+      - ./logger-service/.env
+    networks:
+      - counter-logger-net
+    restart: unless-stopped
+
+networks:
+  counter-logger-net:
+    driver: bridge
